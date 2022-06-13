@@ -1,0 +1,16 @@
+#lang one-v1
+n:=5;
+
+//este é um comentario que será desconsiderado
+//@int, entrada, 500
+//veja, foi desconsiderado de novo.
+
+for i:=0 to n do
+begin
+ print i;
+ i:= i+1;
+end
+
+//este é um comentario que será desconsiderado
+//@float, entrada, 700
+//veja, foi desconsiderado de novo.
