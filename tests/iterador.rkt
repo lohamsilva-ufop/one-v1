@@ -1,7 +1,7 @@
 #lang one-v1/debug/parser-only
 
 //@testcases, 500
-//int, i
+//@int, i
 
 int i;
 int n;
@@ -13,5 +13,4 @@ begin
 end
 
 //este é um comentario que será desconsiderado
-//@float, entrada, 700
 //veja, foi desconsiderado de novo.

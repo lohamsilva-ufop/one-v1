@@ -1,8 +1,10 @@
 #lang racket
 
-(require "syntax.rkt"
-         "gerador/parser_gen.rkt")
+(require "syntax.rkt")
 
+(define (gerador  texto)
+    texto
+ )
 
 (define (eval-for env x stop block)
 (let* (
@@ -21,7 +23,7 @@
 
 ;; reading a value
 
-(define (read-value env string)
+(define (read-value env string gerador)
   (begin
      (display string)
   ))
@@ -86,17 +88,10 @@
 ; eval-stmt : environment * statement -> environment
 
 
-(define (eval-stmt env s)
+(define (eval-stmt env s gerador)
   (match s
     [(input string)
-     
-     (parse_gen (open-input-string (substring string 3 ( - (string-length string) 1))))
-     (begin
-      (displayln "String enviada do interpreador para o parser gerador: ");
-      (displayln (substring string 3 ( - (string-length string) 1))))]
-    
-   ; [(input string)
-        ;(read-value env string gerador)]
+        (read-value env string gerador)]
 
     [(assign v e) (eval-assign env (var-id v) e)]
 
@@ -154,13 +149,13 @@
          env))]))
 
 
-(define (eval-stmts env blk)
+(define (eval-stmts env blk gerador)
   (match blk
     ['() env]
-    [(cons s blks) (let ([nenv (eval-stmt env s)])
-                       (eval-stmts nenv blks))]))
+    [(cons s blks) (let ([nenv (eval-stmt env s gerador)])
+                       (eval-stmts nenv blks gerador))]))
 
 (define (one-v1-interp prog)
-  (eval-stmts (make-immutable-hash) prog))
+  (eval-stmts (make-immutable-hash) prog gerador))
 
 (provide one-v1-interp eval-expr)
