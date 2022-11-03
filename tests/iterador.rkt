@@ -1,4 +1,4 @@
-#lang one-v1/debug/parser-only
+#lang one-v1
 
 //@testcases, 500
 //@int, i

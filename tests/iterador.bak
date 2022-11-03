@@ -1,9 +1,10 @@
-#lang one-v1
-n:=5;
+#lang one-v1/debug/parser-only
 
-//este é um comentario que será desconsiderado
-//@int, entrada, 500
-//veja, foi desconsiderado de novo.
+//@testcases, 500
+//@int, i
+
+int i;
+int n;
 
 for i:=0 to n do
 begin
@@ -12,5 +13,4 @@ begin
 end
 
 //este é um comentario que será desconsiderado
-//@float, entrada, 700
 //veja, foi desconsiderado de novo.
